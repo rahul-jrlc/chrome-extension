@@ -20,8 +20,12 @@ function renderLeads() {
     // const li = document.createElement("li")
     // li.textContent += myLeads[i]
     // ulElements.append(li)
-        listItems += "<li><a href='" + myLeads[i] + "' target='_blank'>" + myLeads[i] + "</a></li>" //CREATES ONE LONG STRING THAT HAS <LI>LEADS</LI> ...
-        console.log(listItems)
+     //   listItems += "<li><a href='" + myLeads[i] + "' target='_blank'>" + myLeads[i] + "</a></li>" //CREATES ONE LONG STRING THAT HAS <LI>LEADS</LI> ...
+       listItems += `
+            <li>
+                <a href='${myLeads[i]}' target= '_blank'>${myLeads[i]}</a>
+            </li>
+            `
 }
 
     ulElements.innerHTML = listItems  //READS THE STRING, INNERHTML READS IT AND RENDERS AS UNORDERED LIST ITEMS BECAUSE OF THE LI TAGS
