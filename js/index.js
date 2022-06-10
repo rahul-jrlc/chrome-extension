@@ -20,7 +20,7 @@ function renderLeads() {
     // const li = document.createElement("li")
     // li.textContent += myLeads[i]
     // ulElements.append(li)
-        listItems += "<li>" + myLeads[i] + "</li>" //CREATES ONE LONG STRING THAT HAS <LI>LEADS</LI> ...
+        listItems += "<li><a href='" + myLeads[i] + "' target='_blank'>" + myLeads[i] + "</a></li>" //CREATES ONE LONG STRING THAT HAS <LI>LEADS</LI> ...
         console.log(listItems)
 }
 
