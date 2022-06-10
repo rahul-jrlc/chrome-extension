@@ -4,6 +4,6 @@ const inputButton = document.getElementById("input-button")
 
 
 inputButton.addEventListener("click", function() {
-    myLeads.push("www.awesomelead.com")
+    myLeads.push(inputEl.value)
     console.log(myLeads)
 }) 
