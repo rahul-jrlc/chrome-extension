@@ -5,6 +5,7 @@ let ulElements = document.querySelector("#ul-element") //GRAB LIST FROM HTML DOC
 
 inputButton.addEventListener("click", function() { //NO NEED FOR LINKING A INPUT FUNCTION TO HTML INPUT BUTTON
     myLeads.push(inputEl.value)
+    inputEl.value = ""  // CLEAR OUT INPUT FIELD AFTER SAVE INPUT BUTTON IS CLICKED
     renderLeads()
 }) 
 
