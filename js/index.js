@@ -25,7 +25,7 @@ function renderLeads() {
             <li>
                 <a href='${myLeads[i]}' target= '_blank'>${myLeads[i]}</a>
             </li>
-            `
+            `  //TEMPLATE STRINGS- SIMILAR TO F-STRINGS IN PYTHON
 }
 
     ulElements.innerHTML = listItems  //READS THE STRING, INNERHTML READS IT AND RENDERS AS UNORDERED LIST ITEMS BECAUSE OF THE LI TAGS
