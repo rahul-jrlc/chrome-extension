@@ -13,6 +13,11 @@ const inputEl = document.getElementById("input-el")
 const inputButton = document.getElementById("input-button")
 let ulElements = document.querySelector("#ul-element") //GRAB LIST FROM HTML DOC
 
+myLeads = JSON.parse(localStorage.getItem("leads")) //GET LEADS FROM LOCAL STORAGE, CONVERTED BACK TO ARRAY
+let leadsFromLocalStorage = myLeads //STORE LEADS IN NEW VAR
+console.log(leadsFromLocalStorage)  //THIS IS ADDING NEW LEADS INTO LOCAL STORAGE, DISPLAYING THEM ON SCREEN AFTER SAVING
+
+
 //localStorage.setItem("myName", "Rahul") //ADDS THIS KEY VALUE PAIR TO LOCAL STORAGE
 //let name = localStorage.getItem("myName") //GETS THE VALUE FROM LOCAL STORAGE
 //console.log(name) //VALUE LOGGED ON CONSOLE
