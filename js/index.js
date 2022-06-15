@@ -1,17 +1,14 @@
-let myLeads = `["www.lead1.com"]`  //LOCAL STORAGE ACCEPTS AND STORES ONLY STRINGS
+//let myLeads = `["www.lead1.com"]`  //LOCAL STORAGE ACCEPTS AND STORES ONLY STRINGS
 
-myLeads = JSON.parse(myLeads)  //CONVERTS A STRING INTO AN OBJECT(ARRAY HERE)
-myLeads.push("www.pushedlead.com")
+//myLeads = JSON.parse(myLeads)  //CONVERTS A STRING INTO AN OBJECT(ARRAY HERE)
+//myLeads.push("www.pushedlead.com")
 
-myLeads = JSON.stringify(myLeads) //CONVERT LEADS ARRAY INTO STRING
+//myLeads = JSON.stringify(myLeads) //CONVERT LEADS ARRAY INTO STRING
 
-console.log(typeof myLeads)
-
-
+//console.log(typeof myLeads)
 
 
-
-
+let myLeads = []
 const inputEl = document.getElementById("input-el")
 const inputButton = document.getElementById("input-button")
 let ulElements = document.querySelector("#ul-element") //GRAB LIST FROM HTML DOC
@@ -24,7 +21,9 @@ let ulElements = document.querySelector("#ul-element") //GRAB LIST FROM HTML DOC
 inputButton.addEventListener("click", function() { //NO NEED FOR LINKING A INPUT FUNCTION TO HTML INPUT BUTTON
     myLeads.push(inputEl.value)
     inputEl.value = ""  // CLEAR OUT INPUT FIELD AFTER SAVE INPUT BUTTON IS CLICKED
+    localStorage.setItem("leads", JSON.stringify(myLeads))  //CONVERTS LEADS ARRAY BEING ADDED TO LOCAL STORAGE INTO STRING 
     renderLeads()
+    console.log(localStorage.getItem("leads"))
 }) 
 
 function renderLeads() {
