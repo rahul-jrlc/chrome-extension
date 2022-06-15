@@ -23,7 +23,7 @@ inputButton.addEventListener("click", function() { //NO NEED FOR LINKING A INPUT
     inputEl.value = ""  // CLEAR OUT INPUT FIELD AFTER SAVE INPUT BUTTON IS CLICKED
     localStorage.setItem("leads", JSON.stringify(myLeads))  //CONVERTS LEADS ARRAY BEING ADDED TO LOCAL STORAGE INTO STRING 
     renderLeads()
-    console.log(localStorage.getItem("leads"))
+    console.log(localStorage.getItem("leads")) //LEADS ENTERED WILL GET STORED TO LOCAL STORAGE EVEN AFTER PAGE REFRESH.
 }) 
 
 function renderLeads() {
