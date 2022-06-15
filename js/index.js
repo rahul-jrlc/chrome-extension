@@ -12,15 +12,23 @@ let myLeads = []
 const inputEl = document.getElementById("input-el")
 const inputButton = document.getElementById("input-button")
 let ulElements = document.querySelector("#ul-element") //GRAB LIST FROM HTML DOC
+const deleteButton = document.querySelector("#delete-button")
 
-let leadsFromLocalStorage = JSON.parse(localStorage.getItem("leads")) //GET LEADS FROM LOCAL STORAGE, CONVERTED BACK TO ARRAY
+const leadsFromLocalStorage = JSON.parse(localStorage.getItem("leads")) //GET LEADS FROM LOCAL STORAGE, CONVERTED BACK TO ARRAY
  //STORE LEADS IN NEW VAR
  //THIS IS ADDING NEW LEADS INTO LOCAL STORAGE, DISPLAYING THEM ON SCREEN AFTER SAVING
 
- if (leadsFromLocalStorage) {  //CHECKS WHETHER LEADS_FROM_LOCAL_STORAGE IS TRUTHY I.E ANY LEADS EXISTING IN LOCAL STORAGE IN ARRAY
-     myLeads = leadsFromLocalStorage
-     renderLeads()
+if (leadsFromLocalStorage) {  //CHECKS WHETHER LEADS_FROM_LOCAL_STORAGE IS TRUTHY I.E ANY LEADS EXISTING IN LOCAL STORAGE IN ARRAY
+    myLeads = leadsFromLocalStorage
+    renderLeads()
  }
+
+deleteButton.addEventListener("dbclick", function() {
+    localStorage.clear()
+    myLeads = []
+    renderLeads()
+    
+})
 
 //localStorage.setItem("myName", "Rahul") //ADDS THIS KEY VALUE PAIR TO LOCAL STORAGE
 //let name = localStorage.getItem("myName") //GETS THE VALUE FROM LOCAL STORAGE
