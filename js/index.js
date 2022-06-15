@@ -3,7 +3,10 @@ const inputEl = document.getElementById("input-el")
 const inputButton = document.getElementById("input-button")
 let ulElements = document.querySelector("#ul-element") //GRAB LIST FROM HTML DOC
 
-console.log(localStorage.getItem("myLeads"))
+//localStorage.setItem("myName", "Rahul") //ADDS THIS KEY VALUE PAIR TO LOCAL STORAGE
+let name = localStorage.getItem("myName") //GETS THE VALUE FROM LOCAL STORAGE
+console.log(name) //VALUE LOGGED ON CONSOLE
+localStorage.clear() //CLEARS LOCAL STORAGE
 
 inputButton.addEventListener("click", function() { //NO NEED FOR LINKING A INPUT FUNCTION TO HTML INPUT BUTTON
     myLeads.push(inputEl.value)
