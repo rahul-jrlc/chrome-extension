@@ -12,7 +12,7 @@ let myLeads = []
 const inputEl = document.getElementById("input-el")
 const inputButton = document.getElementById("input-button")
 let ulElements = document.querySelector("#ul-element") //GRAB LIST FROM HTML DOC
-const deleteButton = document.querySelector("#delete-button")
+const deleteButton = document.getElementById("delete-button")
 
 const leadsFromLocalStorage = JSON.parse(localStorage.getItem("leads")) //GET LEADS FROM LOCAL STORAGE, CONVERTED BACK TO ARRAY
  //STORE LEADS IN NEW VAR
@@ -23,11 +23,10 @@ if (leadsFromLocalStorage) {  //CHECKS WHETHER LEADS_FROM_LOCAL_STORAGE IS TRUTH
     renderLeads()
  }
 
-deleteButton.addEventListener("dbclick", function() {
-    localStorage.clear()
-    myLeads = []
-    renderLeads()
-    
+deleteButton.addEventListener("dblclick", function() { //ON DOUBLE CLICK,
+    localStorage.clear() //DELETE BUTTON WILL CLEAR LOCAL STORAGE,
+    myLeads = [] //EMPTY THE LEADS ARRAY,
+    renderLeads() //CLEAR THE LI ELEMENTS DISPLAYED ON THE WEBPAGE
 })
 
 //localStorage.setItem("myName", "Rahul") //ADDS THIS KEY VALUE PAIR TO LOCAL STORAGE
