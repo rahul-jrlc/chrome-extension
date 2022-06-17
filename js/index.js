@@ -18,10 +18,21 @@ const leadsFromLocalStorage = JSON.parse(localStorage.getItem("leads")) //GET LE
  //STORE LEADS IN NEW VAR
  //THIS IS ADDING NEW LEADS INTO LOCAL STORAGE, DISPLAYING THEM ON SCREEN AFTER SAVING
 
+ const tabButton = document.getElementById("tab-button")
+
 if (leadsFromLocalStorage) {  //CHECKS WHETHER LEADS_FROM_LOCAL_STORAGE IS TRUTHY I.E ANY LEADS EXISTING IN LOCAL STORAGE IN ARRAY
     myLeads = leadsFromLocalStorage
     render(myLeads)
  }
+
+ tabButton.addEventListener("click", function() {        
+    chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+        myLeads.push(tabs[0].url)
+        localStorage.setItem("leads", JSON.stringify(myLeads))
+        render(myLeads)
+
+    })    
+ })
 
  function render(leads) {
     let listItems = ""
