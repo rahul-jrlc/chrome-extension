@@ -26,10 +26,10 @@ if (leadsFromLocalStorage) {  //CHECKS WHETHER LEADS_FROM_LOCAL_STORAGE IS TRUTH
  }
 
  tabButton.addEventListener("click", function() {        
-    chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-        myLeads.push(tabs[0].url)
-        localStorage.setItem("leads", JSON.stringify(myLeads))
-        render(myLeads)
+    chrome.tabs.query({active: true, currentWindow: true}, function(tabs) { //USE CHROME API TO GET CUURENT TAB IN CURRENT WINDOW
+        myLeads.push(tabs[0].url) // PUSH TAB URL TO MYLEADS ARRAY
+        localStorage.setItem("leads", JSON.stringify(myLeads)) // STORE IN LOCAL STORAGE
+        render(myLeads) // RENDER FUNCTION RENDERS OUT CURRENT TAB URL AS AN LI ELEMENT
 
     })    
  })
