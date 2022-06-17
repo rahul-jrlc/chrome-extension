@@ -20,13 +20,38 @@ const leadsFromLocalStorage = JSON.parse(localStorage.getItem("leads")) //GET LE
 
 if (leadsFromLocalStorage) {  //CHECKS WHETHER LEADS_FROM_LOCAL_STORAGE IS TRUTHY I.E ANY LEADS EXISTING IN LOCAL STORAGE IN ARRAY
     myLeads = leadsFromLocalStorage
-    renderLeads()
+    render(myLeads)
  }
+
+ function render(leads) {
+    let listItems = ""
+
+    for (let i = 0; i < leads.length; i++) {  //LOG OUT DUMMY LEADS IN LEADS ARRAY ONTO CONSOLE
+    // ulElements.innerHTML += "<li>" + myLeads[i] + "</li>"
+    // create element
+    // set text content using innerHTML
+    // appending to unordered list
+    // const li = document.createElement("li")
+    // li.textContent += myLeads[i]
+    // ulElements.append(li)
+     //   listItems += "<li><a href='" + myLeads[i] + "' target='_blank'>" + myLeads[i] + "</a></li>" //CREATES ONE LONG STRING THAT HAS <LI>LEADS</LI> ...
+       listItems += `
+            <li>
+                <a href='${leads[i]}' target= '_blank'>${leads[i]}</a>
+            </li>
+            `  //TEMPLATE STRINGS- SIMILAR TO F-STRINGS IN PYTHON
+}
+
+    ulElements.innerHTML = listItems  //READS THE STRING, INNERHTML READS IT AND RENDERS AS UNORDERED LIST ITEMS BECAUSE OF THE LI TAGS
+
+
+}
+
 
 deleteButton.addEventListener("dblclick", function() { //ON DOUBLE CLICK,
     localStorage.clear() //DELETE BUTTON WILL CLEAR LOCAL STORAGE,
     myLeads = [] //EMPTY THE LEADS ARRAY,
-    renderLeads() //CLEAR THE LI ELEMENTS DISPLAYED ON THE WEBPAGE
+    render(myLeads) //CLEAR THE LI ELEMENTS DISPLAYED ON THE WEBPAGE
 })
 
 //localStorage.setItem("myName", "Rahul") //ADDS THIS KEY VALUE PAIR TO LOCAL STORAGE
@@ -38,33 +63,10 @@ inputButton.addEventListener("click", function() { //NO NEED FOR LINKING A INPUT
     myLeads.push(inputEl.value)
     inputEl.value = ""  // CLEAR OUT INPUT FIELD AFTER SAVE INPUT BUTTON IS CLICKED
     localStorage.setItem("leads", JSON.stringify(myLeads))  //CONVERTS LEADS ARRAY BEING ADDED TO LOCAL STORAGE INTO STRING 
-    renderLeads()
-    console.log(localStorage.getItem("leads")) //LEADS ENTERED WILL GET STORED TO LOCAL STORAGE EVEN AFTER PAGE REFRESH.
+    render(myLeads)
+    //console.log(localStorage.getItem("leads")) //LEADS ENTERED WILL GET STORED TO LOCAL STORAGE EVEN AFTER PAGE REFRESH.
 }) 
 
-function renderLeads() {
-    let listItems = ""
-
-    for (let i = 0; i < myLeads.length; i++) {  //LOG OUT DUMMY LEADS IN LEADS ARRAY ONTO CONSOLE
-    // ulElements.innerHTML += "<li>" + myLeads[i] + "</li>"
-    // create element
-    // set text content using innerHTML
-    // appending to unordered list
-    // const li = document.createElement("li")
-    // li.textContent += myLeads[i]
-    // ulElements.append(li)
-     //   listItems += "<li><a href='" + myLeads[i] + "' target='_blank'>" + myLeads[i] + "</a></li>" //CREATES ONE LONG STRING THAT HAS <LI>LEADS</LI> ...
-       listItems += `
-            <li>
-                <a href='${myLeads[i]}' target= '_blank'>${myLeads[i]}</a>
-            </li>
-            `  //TEMPLATE STRINGS- SIMILAR TO F-STRINGS IN PYTHON
-}
-
-    ulElements.innerHTML = listItems  //READS THE STRING, INNERHTML READS IT AND RENDERS AS UNORDERED LIST ITEMS BECAUSE OF THE LI TAGS
-
-
-}
 
 
 
